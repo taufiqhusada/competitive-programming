@@ -1,3 +1,4 @@
+//Helvetic Coding Contest 2016 online mirror (teams, unrated) : C2. Brain Network (medium)
 #include<bits/stdc++.h>
 using namespace std;
 #define pb push_back
