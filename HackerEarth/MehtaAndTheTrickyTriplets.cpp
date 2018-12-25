@@ -3,10 +3,10 @@ using namespace std;
 
 typedef long long ll;
 
-int n,prime[100005],dig,dp[100005][20][5];
+ll n,prime[100005],dig,dp[100005][20][5];
 ll x;
 
-int solve(int pos, int mask, int turn){
+ll solve(ll pos, ll mask, ll turn){
     if(turn==3){
         if (!mask)return 0;
         else return 1;
