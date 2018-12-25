@@ -5,7 +5,7 @@ using namespace std;
 
 int t,n,a[25],allmask,dp[1111111][2];
 
-solve(int mask, int turn){
+int solve(int mask, int turn){
     if (mask==0) return 0;
     if (dp[mask][turn]!=-1) return dp[mask][turn];
     if (turn==1){
