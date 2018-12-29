@@ -42,7 +42,6 @@ int main(){
     REP(i,n){
         REP(j,k+1){
             REP(mask,4){
-                //if(dp[i][j][mask]==0) continue;
                 REP(nmask,4){
                     dp[i+1][j+get(mask,nmask)][nmask] += dp[i][j][mask];
                     while(dp[i+1][j+get(mask,nmask)][nmask]>=MOD){
