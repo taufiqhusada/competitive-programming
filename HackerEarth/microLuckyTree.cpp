@@ -42,7 +42,7 @@ ll dfs(int par, int u,int g){
     }
     if (!leaf)return dp[u][g] = ret%MOD;
 
-    // if leave
+    // if leaf
     ret = 0;
     FOR(i,1,m){
         int cek = pembagi[i]&g;
