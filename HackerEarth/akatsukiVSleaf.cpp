@@ -27,8 +27,7 @@ int solve(int mask, int pos){
     int ans = INF;
     REP(i,n){
         if(!(mask&(1<<i))){
-            ans = min(ans, abs(akatx[i]-leafx[pos]) + abs(akaty[i]-leafy[i]) + solve(mask|(1<<i),pos+1));
-            //cout<<ans<<endl;
+            ans = min(ans, abs(akatx[i]-leafx[pos]) + abs(akaty[i]-leafy[pos]) + solve(mask|(1<<i),pos+1));
         }
     }
     return dp[mask][pos] = ans;
