@@ -19,9 +19,9 @@ typedef unsigned long long ull;
 
 int n, a[20];
 
-int solve(int pos, int mask, int res){
+int solve(int pos, int res){
     if (pos==n) return abs(res);
-    return min(solve(pos+1,mask|(1<<pos),(res+a[pos])%360),solve(pos+1,mask,(res-a[pos]+360)%360));
+    return min(solve(pos+1,(res+a[pos])%360),solve(pos+1,(res-a[pos]+360)%360));
 }
 
 int main(){
