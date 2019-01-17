@@ -18,21 +18,17 @@ typedef long long ll;
 typedef unsigned long long ull;
 
 int t,n;
-ll dp[(1<<5)+5][10005][2];
+ll dp[(1<<5)+5][10005][4];
 int vowel[10005];
 
 ll solve(int mask, int pos, int turn){
-    if (pos>=n) return 0;
-    if (turn==3){
-        if (mask>0){
-            //cout<<pos<<" "<<mask<<endl;
-            return dp[mask][pos][turn] = 1;
-        }
-        else return 0;
+    if (pos==n) {
+        if (turn==3 && mask>0) return 1;
+        return 0;
     }
     else if (dp[mask][pos][turn] != -1) return dp[mask][pos][turn];
     ll &ret = dp[mask][pos][turn] = solve(mask,pos+1,turn);
-    if ((mask&vowel[pos])>0) ret += solve(mask&vowel[pos],pos+1,turn+1);
+    if (turn<=2) ret += solve(mask&vowel[pos],pos+1,turn+1);
     return ret;
 }
 
