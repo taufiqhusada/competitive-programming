@@ -18,26 +18,28 @@ typedef long long ll;
 typedef unsigned long long ull;
 
 int k,c[1010];
-ll dp[1010][1010];
+ll f[1010][1010];
+ll dp[1010];
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
     cin>>k;
-    REP(i,k) cin>>c[i];
+    FOR(i,1,k) cin>>c[i];
     // precompute combination
-    dp[0][0] = 1;
+    f[0][0] = 1;
     FOR(i,1,1005){
-        dp[i][0] = 1;
+        f[i][0] = 1;
         FOR(j,1,1005){
-            dp[i][j] = (dp[i-1][j] + dp[i-1][j-1])%MOD;
+            f[i][j] = (f[i-1][j] + f[i-1][j-1])%MOD;
         }
     }
 
-    ll ans = 1;
+    dp[0] = 1;
     ll sum = 0;
-    REP(i,k){
-        ans = (ans*dp[sum+c[i]-1][c[i]-1])%MOD;
+    FOR(i,1,k){
+        dp[i] = (dp[i-1]*f[sum+c[i]-1][c[i]-1])%MOD;
         sum+=c[i];
+        //cout<<dp[i]<<endl;
     }
-    cout<<ans<<endl;
+    cout<<dp[k]<<endl;
 }
