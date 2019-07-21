@@ -18,8 +18,6 @@ typedef long long ll;
 typedef unsigned long long ull;
 
 int t,n,m,dis[200005];
-std::vector<vi> adj(200005);
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
@@ -27,7 +25,7 @@ int main(){
     while(t--){
         cin>>n>>m;
         int a,b;
-        REP(i,200005) adj[i].clear();
+        std::vector<vi> adj(200005);
         REP(i,m){
             cin>>a>>b;
             adj[a].pb(b);
